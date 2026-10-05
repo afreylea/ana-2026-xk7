@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a1330">
+<meta property="og:title" content="Tengo algo para ti">
+<meta property="og:description" content="Ábrelo cuando estés tranquila.">
+<title>Tengo algo para ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:radial-gradient(ellipse at 50% 30%,#1a3470 0%,#0c1a40 55%,#060b1f 100%);color:#e9efff;font-family:"Cormorant Garamond",Georgia,serif;overflow:hidden}
+.ff{position:fixed;border-radius:50%;background:#d6e4ff;box-shadow:0 0 8px 2px rgba(170,200,255,.65);animation:fl var(--du) ease-in-out var(--dl) infinite alternate;z-index:0}
+@keyframes fl{0%{opacity:.1;transform:translate(0,0)}100%{opacity:.85;transform:translate(var(--dx),var(--dy))}}
+.scr{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity 1s,visibility 0s 1s;z-index:1;padding:0 1rem}
+.scr.on{opacity:1;visibility:visible;transition:opacity 1s}
+.w{margin:auto 0;padding:1.5rem 0;display:flex;flex-direction:column;align-items:center;width:100%}
+.sc{font-family:"Great Vibes","Brush Script MT",cursive;font-weight:400;line-height:1.1;color:#f3f7ff;text-shadow:0 0 24px rgba(150,190,255,.45)}
+.name{font-size:clamp(3.6rem,18vw,5.8rem)}
+.sub{font-size:1.35rem;font-style:italic;font-weight:500;color:#c9dbff}
+.sm{font-size:1rem;letter-spacing:.2em;color:#9fb8ea}
+.orn{width:130px;height:1px;background:linear-gradient(90deg,transparent,#bcd4ff,transparent);margin:1.3rem auto}
+.btn{font:italic 600 1.2rem "Cormorant Garamond",serif;letter-spacing:.06em;color:#0b1a3d;background:linear-gradient(#f6f9ff,#b6cef8);border:0;border-radius:999px;padding:.7em 2.3em;box-shadow:0 0 22px rgba(160,195,255,.45);cursor:pointer;margin-top:1.4rem}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#go{animation:pl 2.6s ease-in-out infinite}
+@keyframes pl{50%{box-shadow:0 0 36px 6px rgba(170,205,255,.7)}}
+#bq{height:40dvh;max-height:400px;aspect-ratio:360/450;width:auto;max-width:90vw;overflow:visible;margin-top:1.5vh;flex:none}
+#bq.bloom{background:radial-gradient(circle at 50% 40%,rgba(150,190,255,.26),transparent 65%)}
+.sw{animation:sw 7s ease-in-out infinite alternate;transform-origin:180px 430px}
+@keyframes sw{from{transform:rotate(-.9deg)}to{transform:rotate(.9deg)}}
+.st{fill:none;stroke:#2f7b59;stroke-width:3.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s ease var(--d)}
+.grow .st{stroke-dashoffset:0}
+.lf{transform:scale(0);transition:transform 1.1s cubic-bezier(.2,.9,.3,1) var(--d)}
+.grow .lf{transform:scale(1)}
+.tw{fill:#fff;opacity:0}
+.grow .tw{animation:tw 3.6s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.12}50%{opacity:.95}}
+.rb{opacity:0;transition:opacity .8s ease .6s}
+.grow .rb{opacity:1}
+.bd{transform:rotate(var(--r)) scale(0);transition:transform .9s cubic-bezier(.3,1.4,.5,1) calc(.7s + var(--d))}
+.grow .bd{transform:rotate(var(--r)) scale(1)}
+.fl{transform:rotate(var(--r)) scale(.2,.1);opacity:0;transition:transform 1.3s cubic-bezier(.2,1.15,.4,1) calc(var(--d) + .15s),opacity .8s ease calc(var(--d) + .15s)}
+.bloom .bd{transform:rotate(var(--r)) scale(1.35);opacity:0;transition:transform .8s ease var(--d),opacity .7s ease calc(var(--d) + .2s)}
+.bloom .fl{transform:rotate(var(--r)) scale(1,var(--t));opacity:1}
+.pn{width:min(90vw,520px);text-align:center;padding:.4rem 0 2rem;min-height:9rem;display:flex;flex-direction:column;align-items:center}
+#t{opacity:0;transform:translateY(8px);transition:opacity 1.1s,transform 1.1s;font-size:clamp(1.2rem,5vw,1.5rem);font-style:italic;font-weight:600;line-height:1.55;color:#ecf2ff}
+#t.v{opacity:1;transform:none}
+#t em{color:#b9d2ff}
+#t.big{font-style:normal;letter-spacing:.16em;font-size:clamp(1.8rem,8.5vw,2.7rem);text-shadow:0 0 22px rgba(150,190,255,.6)}
+#t.fin h2{font-size:clamp(2.8rem,13vw,4.2rem);margin-bottom:.5rem}
+#t.fin p{margin:.5rem 0}
+#t.fin .sm{font-style:normal;font-weight:500;margin-top:1.2rem}
+#nx{opacity:0;pointer-events:none;transition:opacity .9s;margin-top:1.1rem}
+#nx.v{opacity:1;pointer-events:auto}
+.mu{width:min(92vw,480px);display:flex;flex-direction:column;gap:.8rem;margin-top:1.4rem}
+.mu h2{font-size:clamp(2.6rem,12vw,3.8rem);text-align:center}
+.mu p{text-align:center;font-style:italic;font-weight:500;font-size:1.2rem;color:#c9dbff}
+.cd{display:flex;align-items:center;gap:1rem;text-decoration:none;color:#f0f5ff;background:rgba(255,255,255,.07);border:1px solid rgba(190,210,255,.28);border-radius:18px;padding:.9rem 1.1rem;backdrop-filter:blur(4px)}
+.cd:focus-visible{outline:2px solid #fff}
+.cd b{font-family:"Great Vibes",cursive;font-weight:400;font-size:2rem;color:#bcd4ff;width:1.6rem;text-align:center}
+.cd span{flex:1;display:flex;flex-direction:column}
+.cd strong{font-size:1.3rem;font-weight:600}
+.cd small{font-size:1rem;font-style:italic;color:#aac3f0}
+.cd i{font-size:1rem;color:#0b1a3d;background:linear-gradient(#f6f9ff,#b6cef8);border-radius:999px;padding:.3em .95em;font-weight:600}
+.on .cd{animation:up .9s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sh" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#1c3b78" stop-opacity=".5"/><stop offset=".42" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".5"/></linearGradient>
+<linearGradient id="lg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1d5a43"/><stop offset="1" stop-color="#46966f"/></linearGradient>
+<linearGradient id="rbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3edff"/><stop offset="1" stop-color="#86a9e6"/></linearGradient>
+<path id="pd" d="M0 0C-19 -22 -27 -58 -3 -92Q0 -97 3 -92C27 -58 19 -22 0 0Z"/>
+<path id="bp" d="M0 22C-26 0 -24 -52 0 -90C24 -52 26 0 0 22Z"/>
+<g id="tp">
+  <use href="#pd" style="fill:var(--p);stroke:var(--s);stroke-width:1.2"/>
+  <use href="#pd" fill="url(#sh)"/>
+  <path d="M0 -10Q2 -50 0 -82" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.3"/>
+</g>
+<g id="sm"><path d="M0 0Q4 -20 6 -38" stroke="#e6eeff" stroke-width="1.5" fill="none"/><ellipse cx="6.6" cy="-41" rx="2.8" ry="7" transform="rotate(10 6.6 -41)" fill="#d9a441"/></g>
+<symbol id="lily" viewBox="-100 -100 200 200">
+  <use href="#tp"/><use href="#tp" transform="rotate(120)"/><use href="#tp" transform="rotate(240)"/>
+  <use href="#tp" transform="rotate(60) scale(1.1 .88)"/><use href="#tp" transform="rotate(180) scale(1.1 .88)"/><use href="#tp" transform="rotate(300) scale(1.1 .88)"/>
+  <circle r="11" fill="#dfe9b4" opacity=".65"/>
+  <g fill="#27458a" opacity=".5"><circle cx="-14" cy="-26" r="1.5"/><circle cx="12" cy="-32" r="1.5"/><circle cx="20" cy="-14" r="1.5"/><circle cx="-24" cy="-8" r="1.5"/><circle cx="4" cy="-44" r="1.5"/><circle cx="-8" cy="-40" r="1.5"/></g>
+  <use href="#sm" transform="rotate(30)"/><use href="#sm" transform="rotate(90)"/><use href="#sm" transform="rotate(150)"/><use href="#sm" transform="rotate(210)"/><use href="#sm" transform="rotate(270)"/><use href="#sm" transform="rotate(330)"/>
+</symbol>
+<symbol id="bud" viewBox="-100 -100 200 200">
+  <use href="#bp" style="fill:var(--p);stroke:var(--s);stroke-width:1.3"/>
+  <use href="#bp" fill="url(#sh)"/>
+  <path d="M0 20C-10 -10 -8 -50 0 -86M0 20C10 -10 8 -50 0 -86" fill="none" stroke="#fff" stroke-opacity=".5"/>
+</symbol>
+</defs></svg>
+
+<div id="ffs"></div>
+
+<section class="scr on" id="c"><div class="w">
+  <p class="sm">5 de octubre de 2026</p>
+  <div class="orn"></div>
+  <p class="sub">Para mi amor</p>
+  <h1 class="sc name">Ana Milena</h1>
+  <div class="orn"></div>
+  <p class="sub">Tengo algo para ti…</p>
+  <button class="btn" id="go">Abrir</button>
+</div></section>
+
+<section class="scr" id="s"><div class="w">
+  <div id="bqw"></div>
+  <div class="pn"><div id="t"></div><button class="btn" id="nx">Continuar</button></div>
+</div></section>
+
+<section class="scr" id="m"><div class="w"><div class="mu">
+  <h2 class="sc">La banda sonora de hoy</h2>
+  <p>Unas canciones para que este pequeño regalo te acompañe un rato.</p>
+  <div id="cds" style="display:flex;flex-direction:column;gap:.8rem"></div>
+  <button class="btn" id="mn" style="align-self:center">Continuar</button>
+</div></div></section>
+
+<script>
+const $=s=>document.querySelector(s);
+
+/* luciérnagas */
+for(let i=0;i<26;i++){const e=document.createElement('span');e.className='ff';const z=2+Math.random()*3;
+e.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--du:${4+Math.random()*5}s;--dl:-${Math.random()*6}s;--dx:${(Math.random()-.5)*60}px;--dy:${(Math.random()-.5)*70}px`;
+$('#ffs').appendChild(e)}
+
+/* ramo */
+const F=[[115,118,74,-18,.9,1],[248,122,72,18,.9,2],[180,150,120,0,1,0],[100,205,104,-22,.85,1],[262,205,104,22,.85,0],[60,285,80,-38,.75,0],[305,285,80,38,.75,2],[150,268,96,8,.8,2],[215,272,98,-8,.8,1]];
+const C=[['#f7f9ff','#b0c6ee'],['#a8c5f3','#6f97d8'],['#5a86d8','#2f55a3']];
+const lf=(x,y,a,L,W,d)=>`<g transform="translate(${x} ${y}) rotate(${a})"><g class="lf" style="--d:${d}s"><path d="M0 0C${L*.25} ${-W} ${L*.65} ${-W*.9} ${L} ${-W*.1}C${L*.6} ${W*.7} ${L*.25} ${W*.5} 0 0Z" fill="url(#lg)"/><path d="M0 0Q${L*.5} ${-W*.2} ${L*.92} ${-W*.1}" stroke="#8fd0ae" stroke-opacity=".5" fill="none"/></g></g>`;
+let st='',fo='',lv='',dt='';
+F.forEach(([x,y,z,r,t,c],i)=>{
+  st+=`<path class="st" pathLength="1" style="--d:${i*.07}s" d="M180 402Q${180+(x-180)*.35} ${402+(y-402)*.6} ${x} ${y}"/>`;
+  const v=`--p:${C[c][0]};--s:${C[c][1]}`;
+  fo+=`<g transform="translate(${x} ${y})"><g class="bd" style="--r:${r}deg;--d:${i*.06}s"><use href="#bud" x="${-z*.4}" y="${-z*.4}" width="${z*.8}" height="${z*.8}" style="${v}"/></g><g class="fl" style="--r:${r}deg;--t:${t};--d:${i*.08}s"><use href="#lily" x="${-z/2}" y="${-z/2}" width="${z}" height="${z}" style="${v}"/></g></g>`;
+});
+[[180,405,-160,125,16],[180,405,-20,125,16],[176,388,-135,135,18],[184,388,-45,135,18],[172,352,-115,100,13],[188,352,-65,100,13],[178,420,-175,95,12],[182,420,-5,95,12]].forEach((l,i)=>lv+=lf(...l,.15+i*.08));
+for(let k=0;k<18;k++){const a=Math.random()*6.28,q=Math.sqrt(Math.random());dt+=`<circle class="tw" cx="${(180+Math.cos(a)*q*155).toFixed(0)}" cy="${(200+Math.sin(a)*q*170).toFixed(0)}" r="${(1.2+Math.random()*2).toFixed(1)}" style="animation-delay:${(Math.random()*4).toFixed(1)}s"/>`}
+const rib=`<g class="rb" fill="url(#rbg)" stroke="#fff" stroke-opacity=".5" stroke-width=".8"><path d="M180 396C150 372 118 392 134 412C148 424 170 410 180 396Z"/><path d="M180 396C210 372 242 392 226 412C212 424 190 410 180 396Z"/><path d="M176 400C168 420 156 432 142 444L152 447C162 439 172 428 180 410Z"/><path d="M184 400C192 420 204 432 218 444L208 447C198 439 188 428 180 410Z"/><ellipse cx="180" cy="400" rx="9" ry="8"/></g>`;
+$('#bqw').innerHTML=`<svg id="bq" viewBox="0 0 360 450" role="img" aria-label="Ramo de lirios blancos y azules"><g class="sw">${st}${lv}${dt}${fo}${rib}</g></svg>`;
+
+/* carta */
+const B=[
+{h:`<p>Hola, mi vida.</p><p>Estuve un rato bastante largo pensando qué hacer para sorprenderte y darte algo que estuviese a tu altura. Y aunque me habría encantado poder estar ahí para entregártelo personalmente, espero que esto consiga sacarte una sonrisa.</p>`},
+{h:`<p>Hoy no es un día cualquiera.</p><p>Hoy los pájaros recibirán al astro con un canto que pocas veces el mundo tiene la oportunidad de presenciar, porque un día como hoy, hace 18 años, este pequeño planeta tuvo la oportunidad de recibir a una pequeña niña.</p>`},
+{h:`<p>Una niña que ya dejó de ser niña y es toda una mujer: <em>responsable, amable, inteligente y bondadosa</em>, y estoy seguro de que con mucho más que aún me falta por descubrir.</p>`},
+{h:`<p>No conforme con eso, eres la más hermosa de todas, con ese cabello rizado, esa mirada tan brillante que cautiva hasta al más indiferente, tus labios y tu rostro angelical que no me canso de contemplar.</p>`},
+{h:`<p>Hasta las flores hacen venia a tu presencia, y es que siendo la más deslumbrante de todas, ¿cómo no hacerlo?</p>`,bloom:1},
+{h:`<p>Pasando a lo importante: aunque no pueda estar contigo por la distancia, quiero desearte un día increíble. Que la pases bien con tu familia y disfrutes al máximo este día especial.</p><p>Que Dios bendiga tu vida, te ayude a cumplir todos tus deseos, sueños y anhelos, y te conceda muchos años más de vida.</p>`},
+{h:`TQM MI AMOR`,c:'big',b:'Una cosa más'}
+];
+let k=0;const T=$('#t'),nx=$('#nx'),bq=()=>$('#bq');
+function go(id){document.querySelectorAll('.scr').forEach(e=>e.classList.toggle('on',e.id===id))}
+function beat(n,html,cls,label,bloom){
+  nx.classList.remove('v');T.classList.remove('v');
+  setTimeout(()=>{
+    T.innerHTML=html;T.className=cls||'';void T.offsetWidth;T.classList.add('v');
+    if(bloom)setTimeout(()=>bq().classList.add('bloom'),500);
+    if(label){setTimeout(()=>{nx.textContent=label;nx.classList.add('v');nx.scrollIntoView({behavior:'smooth',block:'nearest'})},2200)}
+  },n?800:0);
+}
+function show(n){const b=B[n];beat(n,b.h,b.c,b.b||'Continuar',b.bloom)}
+$('#go').onclick=()=>{go('s');setTimeout(()=>bq().classList.add('grow'),400);setTimeout(()=>show(0),2100)};
+nx.onclick=()=>{if(k<B.length-1){show(++k)}else{go('m')}};
+
+/* canciones */
+const M=[['Que Dios te bendiga','Peter Manjarrés','7KVo72w50dRv8asqkCUIy5'],['Cielo eterno','DannyLux','71lpxN8I3Idkq3xp5DDJX0'],['Hasta la muerte','Eslabon Armado','3qAJAUr7yc9bPDx4ESt6ND'],['Fuentes de Ortiz','Ed Maverick','0akyEssGRVHstqCSWXusJL']];
+$('#cds').innerHTML=M.map((m,i)=>`<a class="cd" style="animation-delay:${.4+i*.2}s" href="https://open.spotify.com/track/${m[2]}" target="_blank" rel="noopener"><b>${i+1}</b><span><strong>${m[0]}</strong><small>${m[1]}</small></span><i>Escuchar</i></a>`).join('');
+$('#mn').onclick=()=>{go('s');nx.classList.remove('v');
+  beat(1,`<h2 class="sc">Feliz cumpleaños,<br>mi amor</h2><p>Y si alguna vez dudas de lo especial que eres, recuerda que hace 18 años el mundo tuvo un día bastante más bonito.</p><p class="sm">Te quiero · 5 de octubre de 2026</p>`,'fin')};
+</script>
+</body>
+</html>
